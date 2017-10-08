@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import ItemList from './ItemList';
 
-export default class TaskList extends Component
+class TaskList extends Component
 {
+    constructor(props)
+    {
+        super(props);
+    }
+
     render()
     {
         return(
             <div className="col-md-6">
                 <ul className="list-group">
-                    <li className="list-group-item">Cras justo odio</li>
-                    <li className="list-group-item">Dapibus ac facilisis in</li>
-                    <li className="list-group-item">Morbi leo risus</li>
-                    <li className="list-group-item">Porta ac consectetur ac</li>
-                    <li className="list-group-item">Vestibulum at eros</li>
+                {this.props.tasks.map((task) => <ItemList key={task.id} {...task} />) }
                 </ul>
             </div>
         )
     }
 }
+
+
+const mapStateToProps = (state) =>
+{
+    return {
+        tasks: state
+    }
+}
+
+export default connect(mapStateToProps)(TaskList);

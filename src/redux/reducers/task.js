@@ -1,5 +1,7 @@
+import { tasks } from '../../dataExample';
+
 //Action reducers
-const taskDefaultState = [];
+const taskDefaultState = tasks;
 
 export const taskReducer = (state = taskDefaultState, action) => {
     switch(action.type)

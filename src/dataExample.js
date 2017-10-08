@@ -1,6 +1,6 @@
 //Task Data Exxample
 
-const task = [
+export const tasks = [
     {
         id: 1,
         description: 'Master redux',
@@ -20,3 +20,4 @@ const task = [
         complete: true
     }
 ]
+
